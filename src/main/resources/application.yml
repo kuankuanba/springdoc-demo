@@ -1,0 +1,24 @@
+server:
+  forward-headers-strategy: framework
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+    path: /v3/api-docs
+  version: '@springdoc.version@'
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    use-root-path: true
+  #包扫描路径
+#  packages-to-scan: com.ruoyi.tenant.controller
+  group-configs:
+    - group: user
+      #按包路径匹配
+      packagesToScan: org.springdoc.demo.services.user
+    - group: book
+      #按路径匹配
+      pathsToMatch: /api/book/**
+      #按包路径匹配
+      packagesToScan: org.springdoc.demo.services.book
